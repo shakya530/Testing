@@ -1,0 +1,43 @@
+<div class="container register">
+  <div class="row">
+
+    <div class="col-md-12 register-right">
+
+      <div class="row register-form">
+        <div class="col-md-12">
+          <form class="form-horizontal" #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
+            <div class="form-group">
+              <input type="text" class="form-control" #firstNamevalid="ngModel" required name="firstName" [(ngModel)]="firstName"
+                placeholder="First Name *" value="" />
+
+                <div *ngIf="firstNamevalid.errors && (firstNamevalid.dirty || firstNamevalid.touched)">
+                  <p  class="text-danger" *ngIf="firstNamevalid.errors.required">First Name is required</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control"  name="address" [(ngModel)]="address" placeholder="Address" value="" />
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control"  name="phone" (keypress)="keyPress($event)"
+              [pattern]="mobNumberPattern" #mobNumber="ngModel"
+               maxlength="10" [(ngModel)]="phone" placeholder="Phone Number" />
+               <div *ngIf="mobNumber.errors" [ngClass] = "'error'">
+                <div *ngIf="mobNumber.errors.pattern">
+                  Mobile number not valid.
+                </div>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-success" value="Save" />
+          </form>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</div>

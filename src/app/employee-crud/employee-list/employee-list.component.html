@@ -1,0 +1,40 @@
+<div class="row">
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone Number</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let emp of emps">
+      <td>{{emp.firstName}}</td>
+      <td>{{emp.address}}</td>
+      <td>{{emp.phone}}</td>
+      <td [routerLink]="['/employee-edit', emp.id]"><button class="button button2">Edit</button></td>
+      <td (click)="deleteEmployee(emp.id)"><button class="button button3">Delete</button></td>
+    </tr>
+
+  </table>
+
+  <!-- <ul *ngFor="let emp of emps">
+
+
+    <div class="card col-sm">
+      <div class="card-body">
+        <h4 class="card-title"> <strong>Name:</strong>{{emp.firstName}}</h4>
+        <h4 class="card-title"> <strong>Address:</strong>{{emp.address}}</h4>
+        <p class="card-text"> <strong>Phone: </strong>{{emp.phone}}
+        </p>
+        <a [routerLink]="['/employee-edit', emp.id]" class="btn btn-primary">Edit</a>
+        <button (click)="deleteEmployee(emp.id)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+
+
+
+
+
+  </ul> -->
+</div>
